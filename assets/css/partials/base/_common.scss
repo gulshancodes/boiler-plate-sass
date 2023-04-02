@@ -1,0 +1,135 @@
+.container {
+    max-width: 1240px;
+    @include mx-auto;
+    @include padding-x(0.75rem, 0.75rem);
+}
+
+.wrapper {
+    display: grid;
+    place-items: center;
+}
+
+.section {
+    @include padding-y(5rem, 5rem);
+}
+
+.btn {
+    display: inline-block;
+    // background-color: ;
+    // color: ;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    @include transition(all, 0.3s);
+
+    // &:hover {
+    //     background-color: ;
+    // }
+}
+
+.btn_group {
+    .btn:last-child {
+        margin-left: 1rem;
+    }
+}
+
+.heading {
+    @include margin-y(1rem, 3.5rem);
+    text-align: center;
+
+    h2 {
+        font-size: 1.8rem;
+        @include margin-y(0.4rem, 0.4rem);
+    }
+
+    p {
+        width: 50%;
+        @include mx-auto;
+        line-height: 2;
+    }
+}
+
+.card {
+    box-shadow: $shadow1;
+    padding: 1.2rem;
+    border-radius: 4px;
+}
+
+.links {
+    @include flex();
+    gap: 1rem;
+    font-size: 0.9rem;
+    // color: ;
+    opacity: 0.6;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.social_links {
+    @include flex($alignItm: center);
+    @extend .links;
+}
+
+.input_box {
+    position: relative;
+}
+
+.input_field {
+    display: block;
+    background: transparent;
+    color: $black;
+    width: 100%;
+    padding: 0.65rem 0.55rem;
+    font-size: 1rem;
+    border-radius: 3px;
+    border: 1px solid rgba($color: $black, $alpha: 0.3);
+    @include transition(border-color, 0.2s, ease-in-out);
+
+    &:focus {
+        border-color: rgba($color: $black, $alpha: 0.6);
+    }
+}
+
+.separator {
+    @include margin-y(1rem, 1rem);
+    border-top: 1px solid rgba($color: $light_gray, $alpha: 0.6);
+}
+
+.backdrop {
+    background-color: rgba($color: $black, $alpha: 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    @include dimension(100%, 100%);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.modal_centered {
+    @include centered;
+    min-height: calc(100% - 3rem);
+    margin: 1.5rem;
+
+    @include devices(xs) {
+        min-height: calc(100% - 1rem);
+        margin: 0.5rem;
+    }
+}
+
+#back_top {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    cursor: pointer;
+    transform-origin: 0;
+    transform: translateY(100%);
+    @include toggleVisibility(hidden, 0);
+    @include transition(all, 0.4s);
+
+    &.show {
+        transform: translateY(0);
+        @include toggleVisibility(visible, 1);
+    }
+}
